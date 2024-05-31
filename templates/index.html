@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Welcome, friend!</h1>
-        <p>What is your name?</p>
+        <p>What`s your name?</p>
         <form method="POST">
             <input type="text" id="name" name="name" required>
             <button type="submit" class="button">Enter</button>
@@ -17,7 +17,6 @@
         {% if name %}
         <p>Hello, {{ name }}!</p>
         {% endif %}
-        <!--<a href="{{ url_for('contact') }}" class="button">Greeting</a>-->
     </div>
 </body>
 </html>
