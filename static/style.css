@@ -14,6 +14,16 @@ body {
     text-align: center;
 }
 
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #390311;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 h1 {
     color: #221a03;
 }
@@ -41,10 +51,26 @@ form {
     align-items: center;
 }
 
-input[type="text"] {
+input[type="text"], textarea {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+}
+
+.flash {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }
