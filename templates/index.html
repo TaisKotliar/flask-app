@@ -21,6 +21,9 @@
 </body>
 </html>
 -->
+
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,5 +50,63 @@
         <p>Hello, {{ name }}!</p>
         {% endif %}
     </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flask App</title>
+    <style>
+        #clock {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        #date {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('about') }}">About</a> |
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <h1>Welcome, friend!</h1>
+        <p>What's your name?</p>
+        <form method="POST">
+            <input type="text" id="name" name="name" required>
+            <button type="submit" class="button">Enter</button>
+        </form>
+        {% if name %}
+        <p>Hello, {{ name }}!</p>
+        {% endif %}
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            document.getElementById('clock').textContent = formattedTime;
+            document.getElementById('date').textContent = formattedDate;
+        }
+
+        setInterval(updateDateTime, 1000); // Update the clock and date every second
+        updateDateTime(); // Initial call to display the clock and date immediately
+    </script>
 </body>
 </html>
